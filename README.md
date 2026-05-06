@@ -33,6 +33,9 @@ dast-2026-group13-housing-price-prediction/
 │   ├── model-card.md
 │   ├── data_provenance.md
 │   ├── fair_workflow.md
+│   ├── experiment_tracking.md
+│   ├── model_versioning.md
+│   ├── workflow_execution.md
 │   └── reproducibility.md
 │
 ├── metadata/
@@ -40,7 +43,8 @@ dast-2026-group13-housing-price-prediction/
 │   │   └── housing_ontology.ttl
 │   │
 │   ├── dataset_metadata.md
-│   └── fair4ml.json
+│   ├── fair4ml.json
+│   └── pipeline_metadata.json
 │
 ├── notebooks/
 │   └── data_preprocessing.ipynb
@@ -216,6 +220,18 @@ Describes FAIR metadata for machine learning workflows and models.
 
 ---
 
+## Pipeline Metadata
+
+File:
+
+```text
+metadata/pipeline_metadata.json
+```
+
+Contains reproducible machine learning pipeline metadata and FAIR workflow configuration.
+
+---
+
 # Semantic Ontology Mapping
 
 Directory:
@@ -312,6 +328,51 @@ Documents:
 
 ---
 
+## Experiment Tracking
+
+File:
+
+```text
+docs/experiment_tracking.md
+```
+
+Documents:
+
+- preprocessing pipeline
+- experiment configurations
+- evaluation metrics
+- reproducibility settings
+
+---
+
+## Model Versioning
+
+File:
+
+```text
+docs/model_versioning.md
+```
+
+Documents:
+
+- model release tracking
+- version history
+- FAIR reproducibility support
+
+---
+
+## Workflow Execution
+
+File:
+
+```text
+docs/workflow_execution.md
+```
+
+Provides workflow execution instructions for the FAIR ML pipeline.
+
+---
+
 ## Reproducibility
 
 File:
@@ -325,6 +386,12 @@ Contains reproducibility instructions for:
 - environment setup
 - dependency installation
 - workflow execution
+
+---
+
+# FAIR Workflow Support
+
+The repository additionally includes FAIR experiment tracking, workflow execution, and model versioning documentation to support reproducible machine learning lifecycle management.
 
 ---
 
