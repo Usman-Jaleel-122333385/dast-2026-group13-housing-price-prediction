@@ -1,0 +1,18 @@
+@prefix schema: <http://schema.org/> .
+@prefix ex: <http://example.org/housing/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+
+ex:HousingDataset a schema:Dataset ;
+    schema:name "Housing Price Prediction Dataset" ;
+    schema:description "Dataset used for FAIR housing price prediction project." ;
+    schema:creator "Usman Jaleel" ;
+    schema:license "MIT" .
+
+ex:Property a schema:House ;
+    schema:numberOfRooms "4" ;
+    schema:floorSize "120" ;
+    qudt:unit "SquareMeter" .
+
+ex:PriceRecord a schema:Offer ;
+    schema:priceCurrency "EUR" ;
+    schema:price "350000" .
