@@ -6,12 +6,15 @@ This project implements a FAIR-compliant machine learning pipeline for housing p
 
 # Project Objectives
 
-- Build a normalized relational database schema for housing datasets
-- Create SQL analytical views for machine learning
-- Implement preprocessing, training, and evaluation pipelines
+The main objectives of this project are:
+
+- Build a housing price prediction pipeline
 - Apply FAIR Data Science principles
-- Provide semantic metadata and ontology mappings
-- Ensure reproducibility and interoperability
+- Normalize housing datasets into SQL schemas
+- Create reproducible ML workflows
+- Implement semantic metadata standards
+- Support interoperability and reproducibility
+- Provide machine-readable FAIR metadata
 
 ---
 
@@ -20,28 +23,28 @@ This project implements a FAIR-compliant machine learning pipeline for housing p
 ```text
 dast-2026-group13-housing-price-prediction/
 │
+├── .github/
+│   └── workflows/
+│       └── python-ci.yml
+│
+├── data/
+│
 ├── docs/
 │   ├── ontology-mapping/
-│   │   ├── semantic_mapping.md
-│   │   └── unit_mapping.md
-│   │
 │   ├── validation/
-│   │   └── data_validation.md
-│   │
-│   ├── er-diagram.png
-│   ├── fair_assessment.md
-│   ├── model-card.md
 │   ├── data_provenance.md
-│   ├── fair_workflow.md
 │   ├── experiment_tracking.md
+│   ├── fair_assessment.md
+│   ├── fair_workflow.md
+│   ├── model-card.md
 │   ├── model_versioning.md
-│   ├── workflow_execution.md
-│   └── reproducibility.md
+│   ├── repository_packaging.md
+│   ├── reproducibility.md
+│   └── workflow_execution.md
 │
 ├── metadata/
 │   ├── rdf/
 │   │   └── housing_ontology.ttl
-│   │
 │   ├── dataset_metadata.md
 │   ├── fair4ml.json
 │   └── pipeline_metadata.json
@@ -57,397 +60,263 @@ dast-2026-group13-housing-price-prediction/
 │
 ├── src/
 │   ├── dbrepo/
+│   ├── evaluation/
+│   │   └── evaluate_model.py
 │   ├── preprocessing/
 │   │   └── preprocess_data.py
-│   │
-│   ├── training/
-│   │   └── train_model.py
-│   │
-│   └── evaluation/
-│       └── evaluate_model.py
+│   └── training/
+│       └── train_model.py
 │
+├── .dockerignore
+├── .env.example
 ├── .gitignore
-├── LICENSE
+├── Dockerfile
+├── docker-compose.yml
 ├── README.md
-├── requirements.txt
+├── LICENSE
 ├── codemeta.json
+├── requirements.txt
 └── ro-crate-metadata.json
 ```
 
 ---
 
-# Database Design
-
-The project uses a normalized relational schema containing:
-
-- cities
-- properties
-- property_features
-- price_records
-
-The schema supports:
-
-- historical housing price tracking
-- feature engineering
-- machine learning analytics
-- semantic interoperability
-
----
-
-# ER Diagram
-
-The relational schema ER diagram is provided in:
-
-```text
-docs/er-diagram.png
-```
-
----
-
-# SQL Components
-
-## schema.sql
-
-Contains:
-
-- normalized relational schema
-- primary keys
-- foreign keys
-- constraints
-
-## views.sql
-
-Contains analytical SQL views for:
-
-- ML feature extraction
-- property aggregation
-- price analysis
-- semantic integration
-
----
-
-# Machine Learning Pipeline
-
-## Preprocessing
-
-File:
-
-```text
-src/preprocessing/preprocess_data.py
-```
-
-Tasks:
-
-- data cleaning
-- missing value handling
-- feature engineering
-- normalization
-
----
-
-## Training
-
-File:
-
-```text
-src/training/train_model.py
-```
-
-Implements:
-
-- Linear Regression training
-- train/test split
-- model serialization
-
----
-
-## Evaluation
-
-File:
-
-```text
-src/evaluation/evaluate_model.py
-```
-
-Computes:
-
-- MAE
-- RMSE
-- R² Score
-
----
-
-# FAIR Metadata and Semantic Resources
-
-## RO-Crate Metadata
-
-File:
-
-```text
-ro-crate-metadata.json
-```
-
-Provides machine-readable metadata for:
-
-- datasets
-- software
-- workflows
-- authorship
-
----
-
-## CodeMeta Metadata
-
-File:
-
-```text
-codemeta.json
-```
-
-Provides software-level metadata using the CodeMeta standard.
-
----
-
-## FAIR4ML Metadata
-
-File:
-
-```text
-metadata/fair4ml.json
-```
-
-Describes FAIR metadata for machine learning workflows and models.
-
----
-
-## Pipeline Metadata
-
-File:
-
-```text
-metadata/pipeline_metadata.json
-```
-
-Contains reproducible machine learning pipeline metadata and FAIR workflow configuration.
-
----
-
-# Semantic Ontology Mapping
-
-Directory:
-
-```text
-docs/ontology-mapping/
-```
-
-Contains:
-
-- semantic_mapping.md
-- unit_mapping.md
-
-Mapped ontologies include:
-
-- Schema.org
-- GeoNames
-- QUDT
-
----
-
-# RDF/Turtle Representation
-
-File:
-
-```text
-metadata/rdf/housing_ontology.ttl
-```
-
-Provides semantic RDF/Turtle ontology representation of the housing dataset.
+# FAIR Metadata Implementation
+
+This repository includes multiple FAIR metadata standards:
+
+| Metadata File | Description |
+|---|---|
+| ro-crate-metadata.json | RO-Crate research object metadata |
+| codemeta.json | Software metadata specification |
+| metadata/fair4ml.json | FAIR4ML metadata for ML workflows |
+| metadata/pipeline_metadata.json | Pipeline metadata configuration |
+| metadata/rdf/housing_ontology.ttl | RDF Turtle semantic ontology |
 
 ---
 
 # FAIR Documentation
 
-## FAIR Assessment
+The repository includes detailed FAIR documentation:
 
-File:
+| Documentation File | Purpose |
+|---|---|
+| docs/fair_assessment.md | FAIR compliance assessment |
+| docs/reproducibility.md | Reproducibility strategy |
+| docs/model-card.md | Model transparency documentation |
+| docs/data_provenance.md | Dataset provenance tracking |
+| docs/experiment_tracking.md | Experiment logging procedures |
+| docs/model_versioning.md | Model version management |
+| docs/fair_workflow.md | FAIR workflow lifecycle |
+| docs/workflow_execution.md | Workflow execution documentation |
+| docs/repository_packaging.md | Repository packaging structure |
+
+---
+
+# Machine Learning Pipeline
+
+The project pipeline consists of:
+
+1. Data preprocessing
+2. SQL normalization
+3. Feature engineering
+4. Model training
+5. Model evaluation
+6. Metadata generation
+7. FAIR documentation
+
+---
+
+# SQL Database Design
+
+The housing dataset is normalized into relational schemas using SQL.
+
+Files:
+
+- `sql/schema.sql`
+- `sql/views.sql`
+
+The SQL implementation supports:
+
+- normalized data storage
+- analytical queries
+- machine learning feature extraction
+- reproducible data workflows
+
+---
+
+# Semantic Ontology Mapping
+
+Semantic interoperability is implemented using RDF Turtle ontology mappings.
+
+Location:
 
 ```text
-docs/fair_assessment.md
+metadata/rdf/housing_ontology.ttl
 ```
 
-Documents FAIR compliance analysis.
+Ontology mappings improve:
+
+- interoperability
+- semantic discoverability
+- metadata reuse
+- linked data compatibility
 
 ---
 
-## Model Card
+# FAIR Reproducibility Features
 
-File:
+This repository supports reproducible machine learning through:
+
+- Git versioning
+- GitHub Releases
+- Docker containers
+- Docker Compose
+- GitHub Actions CI/CD
+- metadata standards
+- workflow documentation
+- environment configuration
+
+---
+
+# GitHub Actions Workflow
+
+Continuous Integration workflow:
 
 ```text
-docs/model-card.md
+.github/workflows/python-ci.yml
 ```
 
-Describes:
+The workflow automatically validates:
 
-- model purpose
-- limitations
-- intended use
-- ethical considerations
+- Python syntax
+- metadata availability
+- documentation completeness
+- SQL resources
+- FAIR repository structure
 
 ---
 
-## Data Provenance
+# Containerization Support
 
-File:
+## Docker
+
+Docker support is included through:
 
 ```text
-docs/data_provenance.md
+Dockerfile
 ```
 
-Tracks:
+## Docker Compose
 
-- dataset origin
-- preprocessing history
-- transformation lineage
-
----
-
-## FAIR Workflow
-
-File:
+Container orchestration support:
 
 ```text
-docs/fair_workflow.md
+docker-compose.yml
 ```
 
-Documents:
+## Environment Configuration
 
-- FAIR ML lifecycle
-- metadata integration
-- reproducibility workflow
-
----
-
-## Experiment Tracking
-
-File:
+Example environment variables:
 
 ```text
-docs/experiment_tracking.md
+.env.example
 ```
-
-Documents:
-
-- preprocessing pipeline
-- experiment configurations
-- evaluation metrics
-- reproducibility settings
 
 ---
 
-## Model Versioning
+# FAIR Principles Compliance
 
-File:
-
-```text
-docs/model_versioning.md
-```
-
-Documents:
-
-- model release tracking
-- version history
-- FAIR reproducibility support
-
----
-
-## Workflow Execution
-
-File:
-
-```text
-docs/workflow_execution.md
-```
-
-Provides workflow execution instructions for the FAIR ML pipeline.
-
----
-
-## Reproducibility
-
-File:
-
-```text
-docs/reproducibility.md
-```
-
-Contains reproducibility instructions for:
-
-- environment setup
-- dependency installation
-- workflow execution
-
----
-
-# FAIR Workflow Support
-
-The repository additionally includes FAIR experiment tracking, workflow execution, and model versioning documentation to support reproducible machine learning lifecycle management.
-
----
-
-# Requirements
-
-Install dependencies using:
-
-```bash
-pip install -r requirements.txt
-```
+| FAIR Principle | Implementation |
+|---|---|
+| Findable | Metadata standards and GitHub releases |
+| Accessible | Public repository and documentation |
+| Interoperable | RDF, RO-Crate, FAIR4ML metadata |
+| Reusable | Reproducible workflows and containers |
 
 ---
 
 # Running the Project
 
-## Step 1 — Preprocessing
+## Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## Run Data Preprocessing
 
 ```bash
 python src/preprocessing/preprocess_data.py
 ```
 
-## Step 2 — Training
+## Train the Model
 
 ```bash
 python src/training/train_model.py
 ```
 
-## Step 3 — Evaluation
+## Evaluate the Model
 
 ```bash
 python src/evaluation/evaluate_model.py
 ```
 
+## Run with Docker
+
+### Build Docker Image
+
+```bash
+docker build -t housing-price-prediction .
+```
+
+### Run Docker Container
+
+```bash
+docker run housing-price-prediction
+```
+
+## Run with Docker Compose
+
+```bash
+docker-compose up
+```
+
 ---
 
-# FAIR Compliance Summary
+# Releases
 
-This repository implements several FAIR principles:
+The repository uses semantic versioning and GitHub Releases.
 
-| FAIR Principle | Implementation |
+Example releases:
+
+| Version | Description |
 |---|---|
-| Findable | RO-Crate + CodeMeta metadata |
-| Accessible | Structured repository and documentation |
-| Interoperable | RDF/Turtle ontology and semantic mappings |
-| Reusable | Reproducible ML workflows and metadata |
-
----
-
-# Authors
-
-Group 13 — DAST 2026
-
-Project: Housing Price Prediction using FAIR Data Science Principles
+| v0.1.0-wp1 | Initial repository setup |
+| v0.2.0-wp2 | FAIR database and ML pipeline setup |
+| v0.3.0-t3 | FAIR metadata and documentation completion |
 
 ---
 
 # License
 
-This project is licensed under the MIT License.
+This project is distributed under the MIT License.
+
+See:
+
+```text
+LICENSE
+```
+
+---
+
+# Authors
+
+FAIR Data Science Project  
+Housing Price Prediction using FAIR ML Principles
+
+---
+
+# Conclusion
+
+This repository demonstrates a complete FAIR-compliant machine learning workflow for housing price prediction using reproducible pipelines, semantic metadata, interoperable standards, and reproducible deployment environments.
