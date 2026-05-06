@@ -1,85 +1,63 @@
-# Predicting Housing Prices Using Real Estate Data in European Cities
+# Housing Price Prediction FAIR Data Science Project
 
-## Abstract
-This project focuses on predicting housing prices using structured real estate data collected from European cities. The experiment follows FAIR data principles and includes metadata standards, semantic annotations, reproducible machine learning workflows, and open-science publication practices.
+## Overview
 
-## Repository Structure
+This project implements a FAIR-compliant data science workflow for housing price prediction using SQL, Python, and machine learning techniques.
 
-- `data/` — raw, processed, and external datasets
-- `src/` — source code for preprocessing, training, evaluation, and DBRepo access
-- `notebooks/` — Jupyter notebooks for experiment execution
-- `outputs/` — generated figures, trained models, and predictions
-- `docs/` — documentation, validation outputs, and ontology mapping notes
-- `metadata/` — FAIR metadata files
-- `sql/` — SQL schema and view definitions
+The repository includes:
 
-## File Organisation
+- Normalized relational database schema
+- SQL analytical views
+- Machine learning preprocessing pipeline
+- Model training and evaluation scripts
+- FAIR metadata and semantic interoperability resources
+- Reproducibility and validation documentation
 
-### Input datasets
-`raw_<dataset-name>_<version>.csv`
+---
 
-### Processed datasets
-`processed_<description>.csv`
-
-### Scripts
-`step##_task_description.py`
-
-### Models
-`model_<algorithm>_<date>.pkl`
-
-### Figures
-`fig_##_<description>.png`
-
-### Configuration files
-`config_<task>.yaml`
-
-## Database Schema
-
-The project database schema is implemented in Third Normal Form (3NF) and consists of the following tables:
-
-- `cities`
-- `properties`
-- `price_records`
-- `property_features`
-
-The schema is defined in:
+# Repository Structure
 
 ```text
-sql/schema.sql
-```
-
-The entity-relationship diagram is available at:
-
-```text
-docs/er-diagram.png
-```
-
-## SQL Views
-
-The project defines SQL views to provide query-ready data for analysis and machine learning.
-
-### `ml_feature_table`
-This view joins city, property, and price information into one feature table for the machine learning pipeline.
-
-### `city_price_summary`
-This view provides aggregated housing price information per city, including average listing price and number of properties.
-
-### `large_properties`
-This view filters properties larger than 100 square metres and can be used for analysis of larger housing units.
-
-The SQL view definitions are stored in:
-
-```text
-sql/views.sql
-```
-
-## Contributors
-
-- Usman Jaleel — 12333385
-- Wajahat Ali Raja — 12333424
-- Zohaib Sultan — 12319879
-- Hamza Rashid — 12332272
-
-## Licence
-
-Software code in this repository is released under the MIT Licence.
+dast-2026-group13-housing-price-prediction/
+│
+├── data/
+├── docs/
+│   ├── ontology-mapping/
+│   │   ├── semantic_mapping.md
+│   │   └── unit_mapping.md
+│   │
+│   ├── validation/
+│   │   └── data_validation.md
+│   │
+│   ├── er-diagram.png
+│   ├── reproducibility.md
+│   └── fair_assessment.md
+│
+├── metadata/
+│   └── rdf/
+│       └── housing_ontology.ttl
+│
+├── notebooks/
+│   └── data_preprocessing.ipynb
+│
+├── outputs/
+│
+├── sql/
+│   ├── schema.sql
+│   └── views.sql
+│
+├── src/
+│   ├── preprocessing/
+│   │   └── preprocess_data.py
+│   │
+│   ├── training/
+│   │   └── train_model.py
+│   │
+│   └── evaluation/
+│       └── evaluate_model.py
+│
+├── requirements.txt
+├── ro-crate-metadata.json
+├── codemeta.json
+├── LICENSE
+└── README.md
