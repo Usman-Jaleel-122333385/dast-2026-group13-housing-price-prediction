@@ -1,0 +1,42 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/"
+  },
+  "@type": "Dataset",
+  "name": "Housing Price Prediction Dataset",
+  "description": "FAIR-compliant housing price prediction dataset used for machine learning experiments.",
+  "license": "https://opensource.org/licenses/MIT",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Usman Jaleel"
+    },
+    {
+      "@type": "Person",
+      "name": "Wajahat Ali Raja"
+    },
+    {
+      "@type": "Person",
+      "name": "Zohaib Sultan"
+    },
+    {
+      "@type": "Person",
+      "name": "Rashid Hamza"
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "./data/"
+    }
+  ],
+  "keywords": [
+    "housing",
+    "machine learning",
+    "FAIR",
+    "metadata",
+    "prediction"
+  ]
+}
