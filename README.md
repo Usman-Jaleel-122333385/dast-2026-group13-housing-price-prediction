@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20056049.svg)](https://doi.org/10.5281/zenodo.20056049)
 # Housing Price Prediction using FAIR Data Science Principles
 
 This project implements a FAIR-compliant machine learning pipeline for housing price prediction using normalized relational databases, semantic metadata, and reproducible ML workflows.
