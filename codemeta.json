@@ -1,0 +1,33 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "Housing Price Prediction FAIR Data Science Project",
+  "description": "A FAIR-compliant machine learning and database project for housing price prediction.",
+  "license": "https://opensource.org/licenses/MIT",
+  "codeRepository": "https://github.com/Usman-Jaleel-122333385/dast-2026-group13-housing-price-prediction",
+  "programmingLanguage": [
+    "Python",
+    "SQL"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Usman",
+      "familyName": "Jaleel"
+    }
+  ],
+  "keywords": [
+    "FAIR",
+    "machine learning",
+    "housing prices",
+    "SQL",
+    "metadata",
+    "reproducibility"
+  ],
+  "softwareRequirements": [
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "matplotlib"
+  ]
+}
