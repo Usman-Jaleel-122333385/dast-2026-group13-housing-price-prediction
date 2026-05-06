@@ -285,5 +285,9 @@ This project is released under the MIT License.
 
 # Authors
 
-FAIR Data Science Group 13  
-TU Wien — DAST 2026
+Group 13 — TU Wien DAST 2026
+
+- Usman Jaleel (12333385)
+- Wajahat Ali Raja (12333424)
+- Zohaib Sultan (12319879)
+- Rashid Hamza (12332272)
