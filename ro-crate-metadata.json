@@ -1,0 +1,92 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Housing Price Prediction FAIR Data Science Project",
+      "description": "A FAIR-compliant machine learning project for housing price prediction using normalized databases, semantic mappings, and reproducible ML pipelines.",
+      "license": {
+        "@id": "https://opensource.org/licenses/MIT"
+      },
+      "creator": [
+        {
+          "@id": "#usman"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "README.md"
+        },
+        {
+          "@id": "sql/schema.sql"
+        },
+        {
+          "@id": "sql/views.sql"
+        },
+        {
+          "@id": "docs/er-diagram.png"
+        },
+        {
+          "@id": "src/preprocessing/preprocess_data.py"
+        },
+        {
+          "@id": "src/training/train_model.py"
+        },
+        {
+          "@id": "src/evaluation/evaluate_model.py"
+        }
+      ]
+    },
+    {
+      "@id": "#usman",
+      "@type": "Person",
+      "name": "Usman Jaleel"
+    },
+    {
+      "@id": "README.md",
+      "@type": "File",
+      "name": "Project README"
+    },
+    {
+      "@id": "sql/schema.sql",
+      "@type": "File",
+      "name": "Database Schema"
+    },
+    {
+      "@id": "sql/views.sql",
+      "@type": "File",
+      "name": "SQL Views"
+    },
+    {
+      "@id": "docs/er-diagram.png",
+      "@type": "File",
+      "name": "ER Diagram"
+    },
+    {
+      "@id": "src/preprocessing/preprocess_data.py",
+      "@type": "File",
+      "name": "Preprocessing Script"
+    },
+    {
+      "@id": "src/training/train_model.py",
+      "@type": "File",
+      "name": "Training Script"
+    },
+    {
+      "@id": "src/evaluation/evaluate_model.py",
+      "@type": "File",
+      "name": "Evaluation Script"
+    }
+  ]
+}
