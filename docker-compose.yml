@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  housing-ml-app:
+    build: .
+    container_name: housing-price-prediction
+
+    env_file:
+      - .env.example
+
+    volumes:
+      - ./:/app
+
+    working_dir: /app
+
+    command: python src/evaluation/evaluate_model.py
