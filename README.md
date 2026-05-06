@@ -2,19 +2,25 @@
 
 This project implements a FAIR-compliant machine learning pipeline for housing price prediction using normalized relational databases, semantic metadata, and reproducible ML workflows.
 
+The implementation follows FAIR principles:
+- Findable
+- Accessible
+- Interoperable
+- Reusable
+
 ---
 
 # Project Objectives
 
-The main objectives of this project are:
+The objectives of this project are:
 
-- Build a housing price prediction pipeline
-- Apply FAIR Data Science principles
-- Normalize housing datasets into SQL schemas
-- Create reproducible ML workflows
-- Implement semantic metadata standards
-- Support interoperability and reproducibility
-- Provide machine-readable FAIR metadata
+- Build a normalized relational database for housing data
+- Create SQL analytical views for ML processing
+- Develop preprocessing, training, and evaluation pipelines
+- Apply FAIR metadata standards
+- Support semantic interoperability using RDF and ontology mappings
+- Enable reproducible machine learning execution
+- Provide containerized deployment support
 
 ---
 
@@ -33,9 +39,11 @@ dast-2026-group13-housing-price-prediction/
 │   ├── ontology-mapping/
 │   ├── validation/
 │   ├── data_provenance.md
+│   ├── er-diagram.png
 │   ├── experiment_tracking.md
 │   ├── fair_assessment.md
 │   ├── fair_workflow.md
+│   ├── final_execution_report.md
 │   ├── model-card.md
 │   ├── model_versioning.md
 │   ├── repository_packaging.md
@@ -44,15 +52,19 @@ dast-2026-group13-housing-price-prediction/
 │
 ├── metadata/
 │   ├── rdf/
-│   │   └── housing_ontology.ttl
 │   ├── dataset_metadata.md
 │   ├── fair4ml.json
 │   └── pipeline_metadata.json
 │
 ├── notebooks/
-│   └── data_preprocessing.ipynb
 │
 ├── outputs/
+│   ├── figures/
+│   ├── models/
+│   ├── metrics.json
+│   ├── model.pkl
+│   ├── predictions.csv
+│   └── training_log.txt
 │
 ├── sql/
 │   ├── schema.sql
@@ -61,19 +73,16 @@ dast-2026-group13-housing-price-prediction/
 ├── src/
 │   ├── dbrepo/
 │   ├── evaluation/
-│   │   └── evaluate_model.py
 │   ├── preprocessing/
-│   │   └── preprocess_data.py
 │   └── training/
-│       └── train_model.py
 │
 ├── .dockerignore
 ├── .env.example
 ├── .gitignore
 ├── Dockerfile
 ├── docker-compose.yml
-├── README.md
 ├── LICENSE
+├── README.md
 ├── codemeta.json
 ├── requirements.txt
 └── ro-crate-metadata.json
@@ -81,202 +90,107 @@ dast-2026-group13-housing-price-prediction/
 
 ---
 
-# FAIR Metadata Implementation
+# FAIR Metadata Components
 
-This repository includes multiple FAIR metadata standards:
+The repository contains multiple FAIR metadata standards and semantic documentation files.
 
-| Metadata File | Description |
-|---|---|
-| ro-crate-metadata.json | RO-Crate research object metadata |
-| codemeta.json | Software metadata specification |
-| metadata/fair4ml.json | FAIR4ML metadata for ML workflows |
-| metadata/pipeline_metadata.json | Pipeline metadata configuration |
-| metadata/rdf/housing_ontology.ttl | RDF Turtle semantic ontology |
+## Included FAIR Metadata
 
----
-
-# FAIR Documentation
-
-The repository includes detailed FAIR documentation:
-
-| Documentation File | Purpose |
-|---|---|
-| docs/fair_assessment.md | FAIR compliance assessment |
-| docs/reproducibility.md | Reproducibility strategy |
-| docs/model-card.md | Model transparency documentation |
-| docs/data_provenance.md | Dataset provenance tracking |
-| docs/experiment_tracking.md | Experiment logging procedures |
-| docs/model_versioning.md | Model version management |
-| docs/fair_workflow.md | FAIR workflow lifecycle |
-| docs/workflow_execution.md | Workflow execution documentation |
-| docs/repository_packaging.md | Repository packaging structure |
+- RO-Crate metadata
+- CodeMeta metadata
+- FAIR4ML metadata
+- RDF Turtle ontology mappings
+- Data provenance documentation
+- Workflow metadata
+- Experiment tracking documentation
+- Model versioning documentation
+- FAIR assessment documentation
 
 ---
 
-# Machine Learning Pipeline
+# Machine Learning Workflow
 
-The project pipeline consists of:
+The machine learning workflow includes:
 
 1. Data preprocessing
-2. SQL normalization
-3. Feature engineering
-4. Model training
-5. Model evaluation
-6. Metadata generation
-7. FAIR documentation
+2. Feature engineering
+3. Model training
+4. Model evaluation
+5. Prediction generation
+6. Metadata documentation
 
 ---
 
-# SQL Database Design
+# SQL Database Layer
 
-The housing dataset is normalized into relational schemas using SQL.
+The relational database implementation includes:
+
+- normalized schema design
+- analytical SQL views
+- feature extraction support
+- machine learning integration
 
 Files:
-
 - `sql/schema.sql`
 - `sql/views.sql`
 
-The SQL implementation supports:
+---
 
-- normalized data storage
-- analytical queries
-- machine learning feature extraction
-- reproducible data workflows
+# Semantic Interoperability
+
+The repository supports semantic interoperability using RDF and ontology mappings.
+
+Included semantic resources:
+- RDF Turtle ontology
+- semantic unit mappings
+- metadata mappings
+- FAIR ontology references
 
 ---
 
-# Semantic Ontology Mapping
+# Reproducibility Support
 
-Semantic interoperability is implemented using RDF Turtle ontology mappings.
+The project supports reproducible research through:
 
-Location:
-
-```text
-metadata/rdf/housing_ontology.ttl
-```
-
-Ontology mappings improve:
-
-- interoperability
-- semantic discoverability
-- metadata reuse
-- linked data compatibility
+- Docker containerization
+- GitHub Actions CI workflow
+- dependency management
+- version-controlled metadata
+- standardized documentation
+- workflow execution tracking
 
 ---
 
-# FAIR Reproducibility Features
+# GitHub Actions CI
 
-This repository supports reproducible machine learning through:
-
-- Git versioning
-- GitHub Releases
-- Docker containers
-- Docker Compose
-- GitHub Actions CI/CD
-- metadata standards
-- workflow documentation
-- environment configuration
-
----
-
-# GitHub Actions Workflow
-
-Continuous Integration workflow:
+The repository includes a GitHub Actions workflow:
 
 ```text
 .github/workflows/python-ci.yml
 ```
 
-The workflow automatically validates:
-
-- Python syntax
-- metadata availability
-- documentation completeness
-- SQL resources
-- FAIR repository structure
+The workflow validates:
+- Python setup
+- dependency installation
+- FAIR reproducibility configuration
 
 ---
 
-# Containerization Support
+# Docker Execution
 
-## Docker
+## Build Docker Image
 
-Docker support is included through:
+```bash
+docker build -t housing-fair-ml .
+```
 
-```text
-Dockerfile
+## Run Docker Container
+
+```bash
+docker run housing-fair-ml
 ```
 
 ## Docker Compose
-
-Container orchestration support:
-
-```text
-docker-compose.yml
-```
-
-## Environment Configuration
-
-Example environment variables:
-
-```text
-.env.example
-```
-
----
-
-# FAIR Principles Compliance
-
-| FAIR Principle | Implementation |
-|---|---|
-| Findable | Metadata standards and GitHub releases |
-| Accessible | Public repository and documentation |
-| Interoperable | RDF, RO-Crate, FAIR4ML metadata |
-| Reusable | Reproducible workflows and containers |
-
----
-
-# Running the Project
-
-## Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run Data Preprocessing
-
-```bash
-python src/preprocessing/preprocess_data.py
-```
-
-## Train the Model
-
-```bash
-python src/training/train_model.py
-```
-
-## Evaluate the Model
-
-```bash
-python src/evaluation/evaluate_model.py
-```
-
-## Run with Docker
-
-### Build Docker Image
-
-```bash
-docker build -t housing-price-prediction .
-```
-
-### Run Docker Container
-
-```bash
-docker run housing-price-prediction
-```
-
-## Run with Docker Compose
 
 ```bash
 docker-compose up
@@ -284,39 +198,92 @@ docker-compose up
 
 ---
 
-# Releases
+# Local Installation
 
-The repository uses semantic versioning and GitHub Releases.
+## Install Dependencies
 
-Example releases:
+```bash
+pip install -r requirements.txt
+```
 
-| Version | Description |
+---
+
+# Pipeline Execution
+
+## Run Preprocessing
+
+```bash
+python src/preprocessing/preprocess.py
+```
+
+## Run Model Training
+
+```bash
+python src/training/train_model.py
+```
+
+## Run Evaluation
+
+```bash
+python src/evaluation/evaluate_model.py
+```
+
+---
+
+# Documentation Files
+
+| File | Purpose |
 |---|---|
-| v0.1.0-wp1 | Initial repository setup |
-| v0.2.0-wp2 | FAIR database and ML pipeline setup |
-| v0.3.0-t3 | FAIR metadata and documentation completion |
+| `docs/fair_assessment.md` | FAIR compliance assessment |
+| `docs/reproducibility.md` | Reproducibility strategy |
+| `docs/model-card.md` | ML model documentation |
+| `docs/data_provenance.md` | Dataset origin and lineage |
+| `docs/experiment_tracking.md` | Experiment tracking process |
+| `docs/model_versioning.md` | Model versioning strategy |
+| `docs/fair_workflow.md` | FAIR ML workflow |
+| `docs/workflow_execution.md` | Workflow execution steps |
+| `docs/repository_packaging.md` | Repository packaging structure |
+| `docs/final_execution_report.md` | Final execution validation report |
+
+---
+
+# Example Outputs
+
+The project generates reproducible machine learning artifacts and evaluation outputs.
+
+Generated outputs include:
+
+- `outputs/metrics.json`
+- `outputs/predictions.csv`
+- `outputs/training_log.txt`
+- `outputs/model.pkl`
+
+These files demonstrate:
+- model evaluation metrics
+- prediction generation
+- workflow logging
+- trained model storage
+
+---
+
+# FAIR Principles Coverage
+
+| FAIR Principle | Implementation |
+|---|---|
+| Findable | RO-Crate metadata, CodeMeta |
+| Accessible | GitHub repository and documentation |
+| Interoperable | RDF ontology mappings and semantic metadata |
+| Reusable | Docker, CI workflows, reproducibility documentation |
 
 ---
 
 # License
 
-This project is distributed under the MIT License.
-
-See:
-
-```text
-LICENSE
-```
+This project is released under the MIT License.
 
 ---
 
 # Authors
 
-FAIR Data Science Project  
-Housing Price Prediction using FAIR ML Principles
-
----
-
-# Conclusion
-
-This repository demonstrates a complete FAIR-compliant machine learning workflow for housing price prediction using reproducible pipelines, semantic metadata, interoperable standards, and reproducible deployment environments.
+FAIR Data Science Group 13  
+TU Wien — DAST 2026
