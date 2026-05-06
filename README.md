@@ -1,17 +1,17 @@
-# Housing Price Prediction FAIR Data Science Project
+# Housing Price Prediction using FAIR Data Science Principles
 
-## Overview
+This project implements a FAIR-compliant machine learning pipeline for housing price prediction using normalized relational databases, semantic metadata, and reproducible ML workflows.
 
-This project implements a FAIR-compliant data science workflow for housing price prediction using SQL, Python, and machine learning techniques.
+---
 
-The repository includes:
+# Project Objectives
 
-- Normalized relational database schema
-- SQL analytical views
-- Machine learning preprocessing pipeline
-- Model training and evaluation scripts
-- FAIR metadata and semantic interoperability resources
-- Reproducibility and validation documentation
+- Build a normalized relational database schema for housing datasets
+- Create SQL analytical views for machine learning
+- Implement preprocessing, training, and evaluation pipelines
+- Apply FAIR Data Science principles
+- Provide semantic metadata and ontology mappings
+- Ensure reproducibility and interoperability
 
 ---
 
@@ -20,7 +20,6 @@ The repository includes:
 ```text
 dast-2026-group13-housing-price-prediction/
 │
-├── data/
 ├── docs/
 │   ├── ontology-mapping/
 │   │   ├── semantic_mapping.md
@@ -30,12 +29,18 @@ dast-2026-group13-housing-price-prediction/
 │   │   └── data_validation.md
 │   │
 │   ├── er-diagram.png
-│   ├── reproducibility.md
-│   └── fair_assessment.md
+│   ├── fair_assessment.md
+│   ├── model-card.md
+│   ├── data_provenance.md
+│   ├── fair_workflow.md
+│   └── reproducibility.md
 │
 ├── metadata/
-│   └── rdf/
-│       └── housing_ontology.ttl
+│   ├── rdf/
+│   │   └── housing_ontology.ttl
+│   │
+│   ├── dataset_metadata.md
+│   └── fair4ml.json
 │
 ├── notebooks/
 │   └── data_preprocessing.ipynb
@@ -47,6 +52,7 @@ dast-2026-group13-housing-price-prediction/
 │   └── views.sql
 │
 ├── src/
+│   ├── dbrepo/
 │   ├── preprocessing/
 │   │   └── preprocess_data.py
 │   │
@@ -56,163 +62,88 @@ dast-2026-group13-housing-price-prediction/
 │   └── evaluation/
 │       └── evaluate_model.py
 │
-├── requirements.txt
-├── ro-crate-metadata.json
-├── codemeta.json
+├── .gitignore
 ├── LICENSE
-└── README.md
+├── README.md
+├── requirements.txt
+├── codemeta.json
+└── ro-crate-metadata.json
+```
+
+---
+
+# Database Design
+
+The project uses a normalized relational schema containing:
+
+- cities
+- properties
+- property_features
+- price_records
+
+The schema supports:
+
+- historical housing price tracking
+- feature engineering
+- machine learning analytics
+- semantic interoperability
+
+---
+
+# ER Diagram
+
+The relational schema ER diagram is provided in:
+
+```text
+docs/er-diagram.png
 ```
 
 ---
 
 # SQL Components
 
-## Database Schema
-
-Located in:
-
-```text
-sql/schema.sql
-```
-
-The schema contains normalized relational tables:
-
-- cities
-- properties
-- price_records
-- property_features
-
-The design follows relational database normalization principles to reduce redundancy and improve data consistency.
-
----
-
-## SQL Analytical Views
-
-Located in:
-
-```text
-sql/views.sql
-```
-
-The analytical SQL views simplify data access for machine learning workflows and reporting.
-
-Example analytical capabilities:
-
-- Property feature aggregation
-- Price analysis
-- City-based comparisons
-- ML-ready feature tables
-
----
-
-# Documentation
-
-## ER Diagram
-
-Located in:
-
-```text
-docs/er-diagram.png
-```
-
-The ER diagram visualizes:
-
-- Entity relationships
-- Primary and foreign keys
-- Database normalization structure
-
----
-
-## Ontology Mapping Documentation
-
-Located in:
-
-```text
-docs/ontology-mapping/
-```
-
-Files:
-
-- semantic_mapping.md
-- unit_mapping.md
-
-These documents describe semantic interoperability and ontology alignment using standard vocabularies.
-
----
-
-## Validation Documentation
-
-Located in:
-
-```text
-docs/validation/data_validation.md
-```
+## schema.sql
 
 Contains:
 
-- Dataset validation rules
-- Missing value checks
-- Constraint validation
-- Data quality verification
+- normalized relational schema
+- primary keys
+- foreign keys
+- constraints
 
----
+## views.sql
 
-## Reproducibility Documentation
+Contains analytical SQL views for:
 
-Located in:
-
-```text
-docs/reproducibility.md
-```
-
-Contains:
-
-- Environment setup instructions
-- Dependency installation
-- Pipeline execution workflow
-- Reproducibility guidelines
-
----
-
-## FAIR Assessment Documentation
-
-Located in:
-
-```text
-docs/fair_assessment.md
-```
-
-Describes implementation of FAIR principles:
-
-- Findable
-- Accessible
-- Interoperable
-- Reusable
+- ML feature extraction
+- property aggregation
+- price analysis
+- semantic integration
 
 ---
 
 # Machine Learning Pipeline
 
-## Data Preprocessing
+## Preprocessing
 
-Located in:
+File:
 
 ```text
 src/preprocessing/preprocess_data.py
 ```
 
-Responsibilities:
+Tasks:
 
-- Data cleaning
-- Feature engineering
-- Handling missing values
-- Data transformation
+- data cleaning
+- missing value handling
+- feature engineering
+- normalization
 
 ---
 
-## Model Training
+## Training
 
-Located in:
+File:
 
 ```text
 src/training/train_model.py
@@ -220,39 +151,25 @@ src/training/train_model.py
 
 Implements:
 
-- Linear regression model training
-- Dataset splitting
-- Feature selection
-- Model persistence
+- Linear Regression training
+- train/test split
+- model serialization
 
 ---
 
-## Model Evaluation
+## Evaluation
 
-Located in:
+File:
 
 ```text
 src/evaluation/evaluate_model.py
 ```
 
-Implements:
+Computes:
 
-- RMSE calculation
-- MAE calculation
-- R² score evaluation
-- Performance reporting
-
----
-
-# Jupyter Notebook
-
-Located in:
-
-```text
-notebooks/data_preprocessing.ipynb
-```
-
-Contains exploratory preprocessing workflow and experimental analysis.
+- MAE
+- RMSE
+- R² Score
 
 ---
 
@@ -260,66 +177,160 @@ Contains exploratory preprocessing workflow and experimental analysis.
 
 ## RO-Crate Metadata
 
-Located in:
+File:
 
 ```text
 ro-crate-metadata.json
 ```
 
-Provides machine-readable research object metadata for FAIR compliance.
+Provides machine-readable metadata for:
+
+- datasets
+- software
+- workflows
+- authorship
 
 ---
 
 ## CodeMeta Metadata
 
-Located in:
+File:
 
 ```text
 codemeta.json
 ```
 
-Provides software metadata describing:
-
-- Authors
-- Programming languages
-- Dependencies
-- Repository information
+Provides software-level metadata using the CodeMeta standard.
 
 ---
 
-## RDF/Turtle Semantic Representation
+## FAIR4ML Metadata
 
-Located in:
+File:
+
+```text
+metadata/fair4ml.json
+```
+
+Describes FAIR metadata for machine learning workflows and models.
+
+---
+
+# Semantic Ontology Mapping
+
+Directory:
+
+```text
+docs/ontology-mapping/
+```
+
+Contains:
+
+- semantic_mapping.md
+- unit_mapping.md
+
+Mapped ontologies include:
+
+- Schema.org
+- GeoNames
+- QUDT
+
+---
+
+# RDF/Turtle Representation
+
+File:
 
 ```text
 metadata/rdf/housing_ontology.ttl
 ```
 
-Implements semantic interoperability using RDF/Turtle representation.
+Provides semantic RDF/Turtle ontology representation of the housing dataset.
 
 ---
 
-# Ontologies Used
+# FAIR Documentation
 
-The project uses the following ontologies:
+## FAIR Assessment
 
-- Schema.org
-- QUDT Ontology
-- GeoNames Ontology
-
-These ontologies improve interoperability and metadata standardization.
-
----
-
-# Python Requirements
-
-Located in:
+File:
 
 ```text
-requirements.txt
+docs/fair_assessment.md
 ```
 
-Install all dependencies using:
+Documents FAIR compliance analysis.
+
+---
+
+## Model Card
+
+File:
+
+```text
+docs/model-card.md
+```
+
+Describes:
+
+- model purpose
+- limitations
+- intended use
+- ethical considerations
+
+---
+
+## Data Provenance
+
+File:
+
+```text
+docs/data_provenance.md
+```
+
+Tracks:
+
+- dataset origin
+- preprocessing history
+- transformation lineage
+
+---
+
+## FAIR Workflow
+
+File:
+
+```text
+docs/fair_workflow.md
+```
+
+Documents:
+
+- FAIR ML lifecycle
+- metadata integration
+- reproducibility workflow
+
+---
+
+## Reproducibility
+
+File:
+
+```text
+docs/reproducibility.md
+```
+
+Contains reproducibility instructions for:
+
+- environment setup
+- dependency installation
+- workflow execution
+
+---
+
+# Requirements
+
+Install dependencies using:
 
 ```bash
 pip install -r requirements.txt
@@ -327,84 +338,49 @@ pip install -r requirements.txt
 
 ---
 
-# Technologies Used
+# Running the Project
 
-## Database
+## Step 1 — Preprocessing
 
-- PostgreSQL
-- SQL
+```bash
+python src/preprocessing/preprocess_data.py
+```
 
-## Programming
+## Step 2 — Training
 
-- Python
+```bash
+python src/training/train_model.py
+```
 
-## Machine Learning
+## Step 3 — Evaluation
 
-- Scikit-learn
-- Pandas
-- NumPy
-
-## FAIR Technologies
-
-- RO-Crate
-- CodeMeta
-- RDF/Turtle
-- Schema.org
-- QUDT
-- GeoNames
-
-## Documentation
-
-- Markdown
-- GitHub
+```bash
+python src/evaluation/evaluate_model.py
+```
 
 ---
 
-# FAIR Principles Compliance
+# FAIR Compliance Summary
+
+This repository implements several FAIR principles:
 
 | FAIR Principle | Implementation |
 |---|---|
-| Findable | Metadata files and structured repository |
-| Accessible | Public GitHub repository |
-| Interoperable | RDF/Turtle and ontology mappings |
-| Reusable | Documentation and reproducibility support |
+| Findable | RO-Crate + CodeMeta metadata |
+| Accessible | Structured repository and documentation |
+| Interoperable | RDF/Turtle ontology and semantic mappings |
+| Reusable | Reproducible ML workflows and metadata |
 
 ---
 
-# Versioning
+# Authors
 
-GitHub Releases are used for milestone tracking:
+Group 13 — DAST 2026
 
-- WP1 Initial Project Setup
-- WP2 FAIR Database and ML Pipeline Setup
+Project: Housing Price Prediction using FAIR Data Science Principles
 
 ---
 
 # License
 
 This project is licensed under the MIT License.
-
-See:
-
-```text
-LICENSE
-```
-
-for details.
-
----
-
-# Contributors
-
-- Usman Jaleel
-- Wajahat Ali Raja
-- Zohaib Sultan
-- Hamza Rashid
-
----
-
-# Author
-
-Usman Jaleel  
-FAIR Data Science Project  
-Housing Price Prediction Workflow
