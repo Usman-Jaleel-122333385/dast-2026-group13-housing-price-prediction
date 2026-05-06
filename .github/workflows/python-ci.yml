@@ -1,0 +1,60 @@
+name: FAIR Python CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  fair-python-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Check Python syntax
+        run: |
+          python -m py_compile src/preprocessing/preprocess_data.py
+          python -m py_compile src/training/train_model.py
+          python -m py_compile src/evaluation/evaluate_model.py
+
+      - name: Validate required FAIR metadata files
+        run: |
+          test -f README.md
+          test -f LICENSE
+          test -f ro-crate-metadata.json
+          test -f codemeta.json
+          test -f metadata/fair4ml.json
+          test -f metadata/pipeline_metadata.json
+          test -f metadata/rdf/housing_ontology.ttl
+
+      - name: Validate required documentation files
+        run: |
+          test -f docs/model-card.md
+          test -f docs/fair_assessment.md
+          test -f docs/reproducibility.md
+          test -f docs/data_provenance.md
+          test -f docs/fair_workflow.md
+          test -f docs/experiment_tracking.md
+          test -f docs/model_versioning.md
+          test -f docs/workflow_execution.md
+          test -f docs/repository_packaging.md
+
+      - name: Validate SQL files
+        run: |
+          test -f sql/schema.sql
+          test -f sql/views.sql
