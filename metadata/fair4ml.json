@@ -1,0 +1,38 @@
+{
+  "model_name": "Housing Price Prediction Linear Regression Model",
+  "model_type": "Regression",
+  "algorithm": {
+    "name": "Linear Regression",
+    "library": "scikit-learn",
+    "version": "latest"
+  },
+  "training_dataset": {
+    "name": "Housing Price Dataset",
+    "description": "Structured housing data containing property size, number of rooms, construction year, city, country, and listing price.",
+    "doi": "To be added after dataset deposit"
+  },
+  "input_features": [
+    "property_size_m2",
+    "total_rooms",
+    "construction_year"
+  ],
+  "target_variable": "listing_price_eur",
+  "hyperparameters": {
+    "fit_intercept": true,
+    "copy_X": true,
+    "positive": false
+  },
+  "evaluation_metrics": {
+    "mean_absolute_error": "To be calculated",
+    "mean_squared_error": "To be calculated",
+    "r2_score": "To be calculated"
+  },
+  "intended_use": "Educational FAIR data science demonstration for reproducible housing price prediction.",
+  "limitations": "The model is a baseline regression model and does not include advanced real estate market factors such as neighborhood quality, interest rates, energy efficiency, or exact geographic coordinates.",
+  "ethical_considerations": "The model should not be used for financial, legal, mortgage, or real-world property valuation decisions.",
+  "related_files": {
+    "model_card": "docs/model-card.md",
+    "training_script": "src/training/train_model.py",
+    "evaluation_script": "src/evaluation/evaluate_model.py"
+  }
+}
