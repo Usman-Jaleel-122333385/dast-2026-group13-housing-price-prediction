@@ -1,0 +1,36 @@
+{
+  "pipeline_name": "Housing Price Prediction FAIR Pipeline",
+  "project": "DAST 2026 Group 13",
+  "description": "FAIR-compliant machine learning pipeline for housing price prediction.",
+  "pipeline_steps": [
+    {
+      "step": "Data Preprocessing",
+      "script": "src/preprocessing/preprocess_data.py"
+    },
+    {
+      "step": "Model Training",
+      "script": "src/training/train_model.py"
+    },
+    {
+      "step": "Model Evaluation",
+      "script": "src/evaluation/evaluate_model.py"
+    }
+  ],
+  "metadata_resources": [
+    "ro-crate-metadata.json",
+    "codemeta.json",
+    "metadata/fair4ml.json",
+    "metadata/rdf/housing_ontology.ttl"
+  ],
+  "reproducibility": {
+    "random_seed": 42,
+    "dependency_file": "requirements.txt",
+    "version_control": "Git"
+  },
+  "fair_principles": [
+    "Findable",
+    "Accessible",
+    "Interoperable",
+    "Reusable"
+  ]
+}
