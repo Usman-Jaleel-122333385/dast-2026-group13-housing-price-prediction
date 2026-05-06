@@ -1,9 +1,11 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20056049.svg)](https://doi.org/10.5281/zenodo.20056049)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20056049-blue)](https://doi.org/10.5281/zenodo.20056049)
+
 # Housing Price Prediction using FAIR Data Science Principles
 
-This project implements a FAIR-compliant machine learning pipeline for housing price prediction using normalized relational databases, semantic metadata, and reproducible ML workflows.
+This project implements a FAIR-compliant machine learning pipeline for housing price prediction using normalized relational databases, semantic metadata, and reproducible machine learning workflows.
 
-The implementation follows FAIR principles:
+The implementation follows the FAIR principles:
+
 - Findable
 - Accessible
 - Interoperable
@@ -16,7 +18,7 @@ The implementation follows FAIR principles:
 The objectives of this project are:
 
 - Build a normalized relational database for housing data
-- Create SQL analytical views for ML processing
+- Create SQL analytical views for machine learning processing
 - Develop preprocessing, training, and evaluation pipelines
 - Apply FAIR metadata standards
 - Support semantic interoperability using RDF and ontology mappings
@@ -80,6 +82,7 @@ dast-2026-group13-housing-price-prediction/
 ├── .dockerignore
 ├── .env.example
 ├── .gitignore
+├── CITATION.cff
 ├── Dockerfile
 ├── docker-compose.yml
 ├── LICENSE
@@ -93,7 +96,7 @@ dast-2026-group13-housing-price-prediction/
 
 # FAIR Metadata Components
 
-The repository contains multiple FAIR metadata standards and semantic documentation files.
+The repository contains multiple FAIR metadata standards and semantic documentation resources.
 
 ## Included FAIR Metadata
 
@@ -101,6 +104,8 @@ The repository contains multiple FAIR metadata standards and semantic documentat
 - CodeMeta metadata
 - FAIR4ML metadata
 - RDF Turtle ontology mappings
+- Dataset metadata documentation
+- Pipeline metadata configuration
 - Data provenance documentation
 - Workflow metadata
 - Experiment tracking documentation
@@ -131,7 +136,8 @@ The relational database implementation includes:
 - feature extraction support
 - machine learning integration
 
-Files:
+SQL files:
+
 - `sql/schema.sql`
 - `sql/views.sql`
 
@@ -142,6 +148,7 @@ Files:
 The repository supports semantic interoperability using RDF and ontology mappings.
 
 Included semantic resources:
+
 - RDF Turtle ontology
 - semantic unit mappings
 - metadata mappings
@@ -171,6 +178,7 @@ The repository includes a GitHub Actions workflow:
 ```
 
 The workflow validates:
+
 - Python setup
 - dependency installation
 - FAIR reproducibility configuration
@@ -191,7 +199,7 @@ docker build -t housing-fair-ml .
 docker run housing-fair-ml
 ```
 
-## Docker Compose
+## Run Docker Compose
 
 ```bash
 docker-compose up
@@ -237,11 +245,11 @@ python src/evaluation/evaluate_model.py
 |---|---|
 | `docs/fair_assessment.md` | FAIR compliance assessment |
 | `docs/reproducibility.md` | Reproducibility strategy |
-| `docs/model-card.md` | ML model documentation |
+| `docs/model-card.md` | Machine learning model documentation |
 | `docs/data_provenance.md` | Dataset origin and lineage |
 | `docs/experiment_tracking.md` | Experiment tracking process |
 | `docs/model_versioning.md` | Model versioning strategy |
-| `docs/fair_workflow.md` | FAIR ML workflow |
+| `docs/fair_workflow.md` | FAIR machine learning workflow |
 | `docs/workflow_execution.md` | Workflow execution steps |
 | `docs/repository_packaging.md` | Repository packaging structure |
 | `docs/final_execution_report.md` | Final execution validation report |
@@ -260,6 +268,7 @@ Generated outputs include:
 - `outputs/model.pkl`
 
 These files demonstrate:
+
 - model evaluation metrics
 - prediction generation
 - workflow logging
@@ -271,10 +280,28 @@ These files demonstrate:
 
 | FAIR Principle | Implementation |
 |---|---|
-| Findable | RO-Crate metadata, CodeMeta |
+| Findable | RO-Crate metadata, CodeMeta, DOI |
 | Accessible | GitHub repository and documentation |
 | Interoperable | RDF ontology mappings and semantic metadata |
 | Reusable | Docker, CI workflows, reproducibility documentation |
+
+---
+
+# Zenodo DOI
+
+Project DOI:
+
+https://doi.org/10.5281/zenodo.20056049
+
+---
+
+# Citation
+
+Citation metadata is available in:
+
+```text
+CITATION.cff
+```
 
 ---
 
