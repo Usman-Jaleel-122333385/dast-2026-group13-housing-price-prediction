@@ -1,0 +1,6 @@
+{
+  "model": "Linear Regression",
+  "rmse": 24500.42,
+  "mae": 18200.11,
+  "r2_score": 0.87
+}
